@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mobile-view {
+  display: none !important;
+}
+
+.web-view {
+  display: flex !important;
+}
+
+@media (max-width: 767px) {
+  .mobile-view {
+    display: flex !important;
+  }
+
+  .web-view {
+    display: none !important;
+  }
+
+  .mat-bottom-sheet-container {
+    margin-bottom: 0px !important;
+  }
+}
+
+.mat-bottom-sheet-container {
+  margin-bottom: 150px ;
+}

@@ -1,0 +1,20 @@
+<div class="sidebar">
+    <ul class="menu">
+        <li class="mobile-view menu-bar">
+            <a class="name">Menu</a>
+            <div (click)="toggleSidebar()">
+                <img src="assets/images/close.svg" alt="Close ">
+            </div>
+        </li>
+        <li *ngFor="let menuItem of menuItems; let i = index">
+            <a class="menu-item" [routerLink]="menuItem.route" routerLinkActive="active"
+                [ngStyle]="{padding: i==3 ? '30px 20px' : '10px 20px'}">
+                <span *ngIf="menuItem.tag" class="tag">{{ menuItem.tag }}</span>
+                <img [src]="menuItem.icon" class="icon" alt="Menu Icon">
+                <span class="name">{{ menuItem.name }}</span>
+            </a>
+            <hr *ngIf="i === 2" style="margin-top:10px;">
+        </li>
+
+    </ul>
+</div>

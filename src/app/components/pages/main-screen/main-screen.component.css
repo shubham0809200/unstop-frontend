@@ -1,0 +1,21 @@
+.example-container {
+  height: 100%;
+  border: none;
+}
+
+.main {
+  height: auto;
+  margin: 0 24px;
+  /* padding: 20px; */
+  border-radius: 12px;
+}
+
+mat-drawer {
+  border: none;
+}
+
+@media (max-width: 767px) {
+  .main {
+    margin: 0;
+  }
+}

@@ -1,0 +1,210 @@
+<div class="assessment">
+    <mat-card class="navbar">
+        <div class="navbar-left">
+            <div class="top-header">
+                <img (click)="toggleSidebar()" class="menu-bar mobile-view" src="assets/images/menu_bar.svg"
+                    alt="menu bar">
+                <span class="title"> Assessment </span>
+
+            </div>
+            <span class="strock web-view">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2" height="46" viewBox="0 0 2 46" fill="none">
+                    <path d="M1 0V46" stroke="#DADCE0" />
+                </svg>
+            </span>
+            <div class="selected-title web-view">
+                <div style="margin-top: 25%;"> My Assessments </div>
+            </div>
+        </div>
+        <div>
+            <img class=" icon web-view" src="assets/images/mobile_screen_share.svg" alt="Menu Icon" />
+            <img class=" icon mobile-view" src="assets/images/laptop.svg" alt="Menu Icon" />
+        </div>
+    </mat-card>
+    <mat-card class="body">
+        <div class="title web-view" style="font-size: 18px; margin: 20px 0;">Assessments Overview</div>
+
+        <div class="tab-container mobile-view">
+            <div class="tab" [class.active]="activeTab === 'tab1'" (click)="activeTab = 'tab1'">My Assessment</div>
+            <div class="tab" [class.active]="activeTab === 'tab2'" (click)="activeTab = 'tab2'">Unstop Assessments</div>
+        </div>
+
+
+
+        <!-- <mat-tab-group class="mobile-view" mat-stretch-tabs="false" mat-align-tabs="center">
+            <mat-tab class="mat-tab" label="My Assessment">
+
+            </mat-tab>
+            <mat-tab class="mat-tab" label="Unstop Assessments"></mat-tab>
+        </mat-tab-group> -->
+
+
+        <!-- score card make padding 0 -->
+        <mat-accordion>
+            <mat-expansion-panel class="mat-elevation-z0" [expanded]=" isPanelOpen">
+                <!-- <div class="score-card">
+
+                </div> -->
+
+                <div class="score-card">
+                    <ng-container *ngFor="let card of isMobileView ? mobileViewScoreCard : webViewScoreCard">
+                        <!-- style="width: 162px;"> -->
+                        <div class="card" *ngIf="card.score !== -1"
+                            [ngStyle]="{'width': isMobileView ? '38%' : '162px'}">
+                            <div class="card-header">
+                                {{ card.name }}
+                            </div>
+
+                            <div class="card-bottom">
+                                <span>
+                                    <img [src]="card.image" [alt]="card.name"></span>
+                                <span class="card-score">
+                                    {{ card.score | number: '1.0-0' }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card" *ngIf="card.score === -1"
+                            [ngStyle]="{'width': isMobileView ? '88%' : 'auto'}">
+                            <div class="card-header">
+                                {{ card.name }}
+                            </div>
+                            <div class="card-content">
+                                <img [src]="card.image" [alt]="card.name">
+                                <div class="score-row" *ngFor="let scoreItem of card.scoreArray; let last = last">
+
+                                    <div class="score-item">
+                                        <div style="display: flex; align-items: center;">
+                                            <span class="score-value">{{ scoreItem.score}}</span>
+                                            <span class="score-add">+{{scoreItem.add}}</span>
+                                        </div>
+                                        <div class="score-title">{{ scoreItem.title }}</div>
+                                    </div>
+                                    <div *ngIf="!last" class="score-divider"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <div>
+            <div class="my-assesment">
+                <div class="title" style="font-size: 16px; ">My Assessment</div>
+                <div class="mobile-view" style="  gap: 7px;">
+                    <div class="open-expansion" [class.active]="selectedIcon === 'search'">
+                        <img (click)="selectIcon('search')" width="22" height="22" src="assets/images/search.svg"
+                            alt="Search icon">
+                    </div>
+                    <div class="open-expansion" [class.active]="selectedIcon === 'filter'">
+                        <img (click)="selectIcon('filter')" width="24" height="24" src="assets/images/filter.svg"
+                            alt="Filter icon">
+                    </div>
+                    <div class="open-expansion" [class.active]="selectedIcon === 'bar'">
+                        <img (click)="selectIcon('bar')" width="16" height="16" (click)="toggleExpansionPanel()"
+                            src="assets/images/bar_chart.svg" alt="Bar chart icon">
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-container">
+                <mat-card class="custom-card new-assessment" style="cursor: pointer;" (click)="openFormPopup()">
+                    <div class="icon-container">
+                        <img src="assets/images/add.svg" alt="Add Icon" />
+                    </div>
+                    <div class="title" style="margin-bottom: 12px">New Assessment</div>
+                    <div class="title" style="font-size: 12px">
+                        From here you can add questions of multiple types like MCQs,
+                        subjective (text or paragraph)!
+                    </div>
+                </mat-card>
+                <!-- ng for for 5 times  -->
+                <mat-card *ngFor="let i of [1,2,3,4,5]" class="custom-card" style="padding: 14px;">
+                    <div class="custom-card-top">
+                        <div class="custom-card-top-bar">
+                            <div>
+                                <img src="assets/images/briefcase.svg" alt="Briefcase icon">
+                            </div>
+                            <div>
+                                <div>
+                                    <span class="title" style="font-size: 18px;">Math Assessment</span>
+                                </div>
+                                <div class="custom-card-top-left-bar">
+                                    <span class="title" style="font-size: 18px;"> Job</span>
+                                    <span class="strock-card">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="2" height="16" viewBox="0 0 2 16"
+                                            fill="none">
+                                            <path d="M1 0V16" stroke="#DADCE0" />
+                                        </svg>
+                                    </span>
+                                    <span class="calender">
+                                        <img class="web-view" src="assets/images/calendar_today.svg" alt="Calender">
+                                        <img class="mobile-view" src="assets/images/clock.svg" alt="CLock">
+                                        <span>20 Apr 2023</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="5" height="17" viewBox="0 0 5 17"
+                                fill="none">
+                                <path
+                                    d="M2.41667 4.66667C3.56726 4.66667 4.5 3.73393 4.5 2.58333C4.5 1.43274 3.56726 0.5 2.41667 0.5C1.26607 0.5 0.333334 1.43274 0.333334 2.58333C0.333334 3.73393 1.26607 4.66667 2.41667 4.66667Z"
+                                    fill="#1C4980" />
+                                <path
+                                    d="M2.41667 10.5C3.56726 10.5 4.5 9.56726 4.5 8.41667C4.5 7.26607 3.56726 6.33333 2.41667 6.33333C1.26607 6.33333 0.333334 7.26607 0.333334 8.41667C0.333334 9.56726 1.26607 10.5 2.41667 10.5Z"
+                                    fill="#1C4980" />
+                                <path
+                                    d="M2.41667 16.3333C3.56726 16.3333 4.5 15.4006 4.5 14.25C4.5 13.0994 3.56726 12.1667 2.41667 12.1667C1.26607 12.1667 0.333334 13.0994 0.333334 14.25C0.333334 15.4006 1.26607 16.3333 2.41667 16.3333Z"
+                                    fill="#1C4980" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="356" height="2" viewBox="0 0 356 2" fill="none">
+                            <path d="M0 1H356" stroke="#DADCE0" stroke-dasharray="3 3" />
+                        </svg>
+                    </div>
+                    <div class="custom-card-bottom">
+                        <div class="custom-card-bottom-left">
+                            <div>
+                                <div>00</div>
+                                <div>Duration</div>
+                            </div>
+                            <div style="margin: 0px;">
+                                <div>00</div>
+                                <div>Questions</div>
+                            </div>
+                        </div>
+                        <div class="custom-card-bottom-right">
+                            <div class="chip">
+                                <img src="assets/images/share.svg" alt="Share Icon" height="16" width="16">
+                                <span>Share</span>
+                            </div>
+                            <div class="custom-card-bottom-right-center">
+                                <div *ngIf="i === 1" class="candidate-circle-alone">
+                                    LP
+                                </div>
+                                <div *ngIf="i !== 1" class="candidate-circle-fix"
+                                    [ngStyle]="{'padding-left': (number * i * randomDecimal) > 999 ? '0px' : '20px'}">
+                                    <div class="circle-container">
+                                        <div class="candidate-circle">LP</div>
+                                        <div class="candidate-circle">LP</div>
+                                        <div *ngIf="(number * i * randomDecimal) < 999" class="candidate-circle">LP
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="score" *ngIf="i !== 1" style="padding-left: 35px;">
+                                + {{ (number * i * randomDecimal) | number:'1.0-0' }}
+                            </div>
+
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </mat-card>
+</div>

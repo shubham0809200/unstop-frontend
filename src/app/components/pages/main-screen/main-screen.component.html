@@ -1,0 +1,10 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer #sidenav [mode]="getSidebarMode()" [opened]="isSidebarOpen">
+    <app-sidebar />
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="main">
+      <router-outlet />
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

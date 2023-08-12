@@ -1,8 +1,8 @@
 # [UnstopFrontend](https://unstop-frontend.web.app/assessment)
 
-## Visit the deployed site: [UnstopFrontend](https://unstop-frontend.web.app/assessment)
+## Visit the deployed site: [Click here](https://unstop-frontend.web.app/assessment)
 
-## Assigment Link: [UnstopFrontend](https://d8it4huxumps7.cloudfront.net/uploads/submissions_case/64ae6dc42815b_Unstop_Front_End_Developer_Assessment.pdf)
+## Assigment Link: [Click here](https://d8it4huxumps7.cloudfront.net/uploads/submissions_case/64ae6dc42815b_Unstop_Front_End_Developer_Assessment.pdf)
 
 ### Features
 

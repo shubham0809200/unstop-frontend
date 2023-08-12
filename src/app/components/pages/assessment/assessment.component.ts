@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { SidebarService } from 'src/app/service/sidebar/sidebar.service';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { FormComponent } from '../form/form.component';
+import { FormAssesmentComponent } from '../../widgets/form-assesment/form-assesment.component';
 
 @Component({
   selector: 'app-assessment',
@@ -73,7 +73,7 @@ export class AssessmentComponent {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private sidebarService: SidebarService,
-    private bottomSheet: MatBottomSheet
+    private _bottomSheet: MatBottomSheet
   ) {}
 
   ngOnInit() {
@@ -122,16 +122,12 @@ export class AssessmentComponent {
     this.sidebarService.toggle();
   }
 
-  openFormPopup() {
-    
-      const bottomSheetRef = this.bottomSheet.open(FormComponent, {
-        autoFocus: false, // Prevent automatic focus on form fields
-        panelClass: 'bottom-sheet', // Add custom styles to the bottom sheet
-      });
+  openFormPopup(): void {
+     this._bottomSheet.open(FormAssesmentComponent);
 
-      bottomSheetRef.afterDismissed().subscribe((result) => {
-        // Handle the result after the bottom sheet is closed
-      });
+    // bottomSheetRef.afterDismissed().subscribe((result) => {
+    //   // Handle the result after the bottom sheet is closed
+    // });
     // }
   }
 }

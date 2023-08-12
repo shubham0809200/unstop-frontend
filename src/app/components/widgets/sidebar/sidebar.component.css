@@ -1,6 +1,4 @@
 .sidebar {
-  /* width: 315px; */
-  /* background-color: #f2f8fe; */
   padding: 16px 20px 20px 30px;
 }
 
@@ -15,7 +13,6 @@
 }
 
 .menu li {
-  /* display: flex; */
   align-items: center;
   margin-bottom: 10px;
 }
@@ -45,26 +42,25 @@
 }
 
 a {
-  /* color: #1c4980;
-  font-feature-settings: "clig" off, "liga" off;
-  font-family: Inter;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 140%; */
   text-decoration: none;
 }
 
 .tag {
+  color: #d63500;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
   display: flex;
-  /* height: 18px; */
-  padding: 6px 8px;
+  height: 18px;
+  padding: 2px 8px;
   align-items: center;
   text-align: center;
-  margin-bottom: 16px;
   border-radius: 22px;
-  border: 1px solid var(--accent-new-red, #d63500);
-  background: var(--accent-red-light, #fbebea);
+  border: 1px solid #d63500;
+  background: #fbebea;
 }
 
 .name {

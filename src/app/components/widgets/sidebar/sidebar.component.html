@@ -9,12 +9,28 @@
         <li *ngFor="let menuItem of menuItems; let i = index">
             <a class="menu-item" [routerLink]="menuItem.route" routerLinkActive="active"
                 [ngStyle]="{padding: i==3 ? '30px 20px' : '10px 20px'}">
-                <span *ngIf="menuItem.tag" class="tag">{{ menuItem.tag }}</span>
+                <span *ngIf="menuItem.tag" class="tag web-view" style="  margin-bottom: 16px;">{{ menuItem.tag }}</span>
                 <img [src]="menuItem.icon" class="icon" alt="Menu Icon">
                 <span class="name">{{ menuItem.name }}</span>
+                <span *ngIf=" i==3" class="tag mobile-view" style=" margin-left: auto; ">
+                    {{ menuItem.tag }}
+                </span>
             </a>
             <hr *ngIf="i === 2" style="margin-top:10px;">
         </li>
-
     </ul>
 </div>
+
+<!-- <li>
+            <a style="height: auto; display: flex; justify-content: space-between;" [routerLink]="menuItems[3].route"
+                routerLinkActive="active">
+                <div class="menu-item">
+                    <span *ngIf="menuItems[3].tag" class="tag web-view">{{ menuItems[3].tag }}</span>
+                    <img [src]="menuItems[3].icon" class="icon" alt="Menu Icon">
+                    <span class="name">{{ menuItems[3].name }}</span>
+                </div>
+                <span *ngIf="menuItems[3].tag" class="tag mobile-view" style="font-size: 10px; margin: auto 0;">
+                    {{ menuItems[3].tag }}
+                </span>
+            </a>
+        </li> -->

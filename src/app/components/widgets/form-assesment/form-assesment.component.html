@@ -1,1 +1,80 @@
-<p>form-assesment works!</p>
+<div class="form-card">
+    <div class="form-header">
+        <p class="header-title web-view">Create new assessment</p>
+        <p class="header-title mobile-view">Sub-Section Details</p>
+        <img (click)="closeBottomSheet()" class="web-view" src="assets/images/close.svg" alt="Close Button">
+        <img (click)="closeBottomSheet()" class="mobile-view" src="assets/images/close_red_circle.svg"
+            alt="Close Button">
+    </div>
+
+    <form [formGroup]="assessment">
+
+        <div class="form-box">
+            <label>Name of assessment</label>
+            <input type="text" formControlName="name" placeholder="Name">
+
+            <!-- <mat-form-field appearance="outline">
+                <input matInput type="text" formControlName="name" placeholder="Name">
+            </mat-form-field> -->
+        </div>
+
+        <div class="form-box">
+            <label>Purpose of the test is</label>
+            <!-- <mat-form-field appearance="outline"> -->
+            <select formControlName="purpose" placeholder="Type Here">
+                <option value="">Select</option>
+                <option value="1">Purpose 1</option>
+                <option value="2">Purpose 2</option>
+                <option value="3">Purpose 3</option>
+            </select>
+            <!-- </mat-form-field> -->
+        </div>
+
+        <div class="form-box">
+            <label>Description</label>
+            <select formControlName="description" placeholder="Type Here">
+                <option value="">Select</option>
+                <option value="1">Descript 1</option>
+                <option value="2">Descript 2</option>
+                <option value="3">Descript 3</option>
+            </select>
+        </div>
+
+        <div class="form-box">
+            <label>Skills</label>
+            <mat-chip-grid #chipGrid aria-label="Skill selection" style="margin-bottom: -11px;">
+                <mat-chip-row style="background: #DDEDFF;" *ngFor="let skill of selectedSkills"
+                    (removed)="remove(skill)">
+                    <span class="chip"> {{ skill }}</span>
+                    <button matChipRemove [attr.aria-label]="'remove ' + skill">
+                        <!-- <mat-icon>cancel</mat-icon> -->
+                        <img src="assets/images/close.svg" alt="close button">
+
+                    </button>
+                </mat-chip-row>
+            </mat-chip-grid>
+
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                <mat-option *ngFor="let skill of filteredSkills | async" [value]="skill">
+                    {{ skill }}
+                </mat-option>
+            </mat-autocomplete>
+            <input style="border-radius: 0 0 8px 8px;" type="text" #skillInput placeholder="New Skill..."
+                formControlName="skills" [matAutocomplete]="auto">
+            <!-- <input type="text" #skillInput placeholder="New Skill..." formControlName="skills"
+                [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)" /> -->
+        </div>
+
+        <div class="form-box">
+            <label>Duration of assessment</label>
+            <input type="text" formControlName="name" placeholder="HH:MM:SS">
+        </div>
+
+
+    </form>
+    <div class="save-button">
+        <button class="web-view" mat-raised-button color="primary">Save</button>
+        <button class="mobile-view" mat-raised-button color="primary">Next</button>
+    </div>
+</div>

@@ -13,8 +13,9 @@ import { MyLibraryComponent } from './components/pages/my-library/my-library.com
 import { MainScreenComponent } from './components/pages/main-screen/main-screen.component';
 import { FormAssesmentComponent } from './components/widgets/form-assesment/form-assesment.component';
 import { SidebarComponent } from './components/widgets/sidebar/sidebar.component';
-import { FormComponent } from './components/pages/form/form.component';
 
+// for form
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 
 @NgModule({
   declarations: [
@@ -27,13 +28,14 @@ import { FormComponent } from './components/pages/form/form.component';
     ErrorRouteComponent,
     FormAssesmentComponent,
     SidebarComponent,
-    FormComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     AngularMaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

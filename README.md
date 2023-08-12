@@ -2,6 +2,8 @@
 
 ## Visit the deployed site: [UnstopFrontend](https://unstop-frontend.web.app/assessment)
 
+## Assigment Link: [UnstopFrontend](https://d8it4huxumps7.cloudfront.net/uploads/submissions_case/64ae6dc42815b_Unstop_Front_End_Developer_Assessment.pdf)
+
 ### Features
 
 - Responsive
@@ -14,14 +16,14 @@
 - Typescript
 - HTML
 - CSS
-- ``` Angular Material ```
+- `Angular Material`
 
 ## How to run the project locally
 
 ### Clone the repository
 
 ```bash
-git clone
+git clone https://github.com/shubham0809200/unstop-frontend.git
 ```
 
 ### Install dependencies

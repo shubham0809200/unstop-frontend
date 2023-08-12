@@ -174,7 +174,6 @@ hr {
     width: 50px;
     height: 50px;
     padding: 7.143px;
-
   }
 }
 
@@ -691,4 +690,30 @@ hr {
   .score-item {
     padding-left: 10px;
   }
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  /* width: 50px;
+  height: 50px;
+  padding: 7.143px;
+  justify-content: center;
+  align-items: center;
+  gap: 7.143px;
+  flex-shrink: 0;
+
+  border-radius: 51.429px;
+  background: #0073e6; */
+}
+
+.floating-button mat-icon {
+  width: 28.571px;
+  height: 28.571px;
+  flex-shrink: 0;
+
+  color: #fff;
+  font-weight: bold;
 }

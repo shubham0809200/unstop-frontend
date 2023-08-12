@@ -19,6 +19,8 @@ const routes: Routes = [
           { path: 'assessment', component: AssessmentComponent },
           { path: 'my-library', component: MyLibraryComponent },
           { path: 'round-status', component: RoundStatusComponent },
+          { path: '', redirectTo: 'assessment', pathMatch: 'full' },
+          { path: '**', component: ErrorRouteComponent },
         ],
       },
     ],

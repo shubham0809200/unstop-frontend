@@ -21,4 +21,14 @@ export class SidebarService {
   toggle() {
     this.sidebarStateSubject.next(!this.sidebarStateSubject.value);
   }
+
+  //to close
+  closeSidebar() {
+    this.sidebarStateSubject.next(false);
+  }
+
+  // if screen is mobil then close the sidebar
+  closeSidebarOnMobile() {
+    this.sidebarStateSubject.next(false);
+  }
 }

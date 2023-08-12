@@ -93,6 +93,10 @@ export class AssessmentComponent {
         );
         this.isPanelOpen = !state.matches;
         this.isMobileView = state.matches;
+        // if mobile view then close the sidebar
+        if (this.isMobileView) {
+          this.sidebarService.closeSidebar();
+        }
       });
   }
 
@@ -123,7 +127,7 @@ export class AssessmentComponent {
   }
 
   openFormPopup(): void {
-     this._bottomSheet.open(FormAssesmentComponent);
+    this._bottomSheet.open(FormAssesmentComponent);
 
     // bottomSheetRef.afterDismissed().subscribe((result) => {
     //   // Handle the result after the bottom sheet is closed

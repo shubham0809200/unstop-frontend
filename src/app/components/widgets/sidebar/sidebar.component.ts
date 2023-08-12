@@ -16,6 +16,11 @@ export class SidebarComponent {
     this.sidebarService.toggle();
   }
 
+  closeSidebar() {
+    console.log('closeSidebar()');
+    this.sidebarService.closeSidebarOnMobile();
+  }
+
   menuItems: Menu[] = [
     {
       icon: 'assets/images/dashboard.svg',
